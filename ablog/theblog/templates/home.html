@@ -18,6 +18,8 @@
         <a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a>
         {{ post.title }} <br />
         {{ post.author.first_name }} {{ post.author.last_name }} <br />
+        - <small><a href="{% url 'update_post' post.pk %}">(Edit)</a></small
+        ><br />
         {{ post.author.email }}<br /><br />
         {{ post.body }}<br /><br />
       </li>
