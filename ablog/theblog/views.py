@@ -4,7 +4,7 @@ from django.db.models.base import Model
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from .models import Post
-from .forms import PostForm
+from .forms import PostForm, EditForm
 
 # from theblog import models
 
@@ -32,5 +32,6 @@ class AddPostView(CreateView):
 
 class UpdatePostView(UpdateView):
     model = Post
+    form_class = EditForm
     template_name = "update_post.html"
-    fields = ["title", "title_tag", "body"]
+    # fields = ["title", "title_tag", "body"]
