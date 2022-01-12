@@ -18,6 +18,7 @@
         <a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a>
         {{ post.title }} <br />
         {{ post.author.first_name }} {{ post.author.last_name }} <br />
+        {{ post.post_date }} <br />
         - <small><a href="{% url 'update_post' post.pk %}">(Edit)</a></small> -
         <small><a href="{% url 'delete_post' post.pk %}">(Delete)</a></small
         ><br />
