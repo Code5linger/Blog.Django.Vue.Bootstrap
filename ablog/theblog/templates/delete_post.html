@@ -8,7 +8,8 @@
     <title>{% block title %}Delete Blog Post{% endblock %}</title>
   </head>
   <body>
-    {% block content %}
+    {% block content %}<br />
+    {% if user.is_authenticated %}
 
     <h1>Delete Post...</h1>
     <br /><br />
@@ -21,6 +22,8 @@
         <button class="btn btn-dark">Delete Post!</button>
       </form>
     </div>
+    {% else %} You are not authorized to view this page. {% endif %}<br />
+
     {% endblock %}
   </body>
 </html>
