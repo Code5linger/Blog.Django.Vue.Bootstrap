@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% extends 'base.html' %}
+    <title>{% block title %}i2i Blog{% endblock %}</title>
+  </head>
+  <body>
+    {% block content %} {% if category_posts %}
+    <h1>{{ cats }}</h1>
+    <ul>
+    {% for post in category_posts %}
+      <li>
+        <a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a>
+        {{ post.title }} - {{ post.category}} - {{ post.author.first_name }}
+        {{post.author.last_name}} {{ post.post_date }} - {{ post.author.email }}
+        {% if user.is_authenticated %}
+          <small><a href="{% url 'update_post' post.pk %}">(Edit)</a></small> -
+          <small><a href="{% url 'delete_post' post.pk %}">(Delete)</a></small>
+        {% endif %}
+
+        {{ post.body|slice:":200"|safe }}<br /><br />
+      </li>
+      {% endfor %}
+
+    {% else %}
+      <h2>Page dose not exists!</h2>
+      {% endif %} 
+    </ul>
+    {% endblock %}
+  </body>
+</html>

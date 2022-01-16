@@ -1,3 +1,4 @@
+from unicodedata import category
 from django.db import models
 from django.db.models import fields
 from django.db.models.base import Model
@@ -16,6 +17,11 @@ class HomeView(ListView):
     model = Post
     template_name = "home.html"
     ordering = ['-post_date']
+
+
+def CategoryView(request, cats):
+    category_posts = Post.objects.filter(category=cats)
+    return render(request, 'categories.html', {'cats': cats.title(), 'category_posts': category_posts})
 
 
 class ArticleDateDetailView(DetailView):
