@@ -33,6 +33,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            {% if cat_menu %}
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -43,17 +44,25 @@
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                Dropdown
+                Categories
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
+                {% for item in cat_menu %}
+                <a
+                  class="dropdown-item"
+                  href="{% url 'category' item|slugify %}"
+                  >Action</a
+                >
+                {{ item }}<br />
+                {% endfor %}
               </div>
             </li>
+            {% else %}
 
-            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'category-list' %}">Category</a>
+            </li>
+            {% endif %} {% if user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'add_post' %}">Add Post</a>
             </li>
