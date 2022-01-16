@@ -11,7 +11,7 @@
   <body>
     {% block content %}
 
-    <h1>{{ post.title }}</h1>
+    <h1>{{ post.title }} {{ post.author.id }}</h1>
     <small
       >By: {{ post.author.first_name }} {{ post.author.last_name}} -
       {{post.post_date }} {% if user.is_authenticated %}
