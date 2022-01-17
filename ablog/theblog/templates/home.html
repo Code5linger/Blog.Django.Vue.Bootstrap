@@ -26,8 +26,9 @@
             <small><a href="{% url 'update_post' post.pk %}">(Edit)</a></small> -
             <small><a href="{% url 'delete_post' post.pk %}">(Delete)</a></small>
           {% endif %}
-        {% endif %} {{ post.author.email }}<br /><br />
-        {{ post.body|slice:":200"|safe }}<br /><br />
+        {% endif %} <br /><br />
+        {{ post.snippet }}
+        <br /><br />
       </li>
       {% endfor%}
     </ul>
