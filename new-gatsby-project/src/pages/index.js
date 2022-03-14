@@ -1,8 +1,11 @@
 import React from "react"
 import { Link } from "gatsby"
+import header from "../components/header"
+import Header from "../components/header"
 
 export default () => (
   <div>
+    <Header title="Home" />
     <div>
       <h1>First Gatsby project</h1>
       <Link to="http://localhost:8000/test">Navigate to Test</Link>
