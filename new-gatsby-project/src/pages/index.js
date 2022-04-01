@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import header from "../components/header"
 import Header from "../components/header"
 
 export default () => (
